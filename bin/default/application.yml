@@ -1,0 +1,19 @@
+spring:
+  jackson:
+    serialization:
+      write-dates-as-timestamps: true
+  datasource:
+    driver:
+      class: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@localhost:1521:orcl
+    username: hr
+    password: hr1qw23er4
+    hikari:
+      connectionTimeout: 30000
+      idleTimeout: 600000
+      maxLifetime: 1800000
+logging:
+  level:
+    org:
+      springframework:
+        web: DEBUG

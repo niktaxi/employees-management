@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Employees</title>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="employeesController.js"></script>
+		<script type="text/javascript" src="attributesController.js"></script>
+		
+		 <style>
+		    label, input { display:block; }
+		    input.text { margin-bottom:12px; width:95%; padding: .4em; }
+		    fieldset { padding:0; border:0; margin-top:25px; }
+		    .ui-dialog .ui-state-error { padding: .3em; }
+		    .clickable {cursor: pointer}
+		    .selected {background-color: lightGreen !important}
+		    .validateTips { border: 1px solid transparent; padding: 0.3em; }
+		 </style>
+	</head>
+	<body>
+
+		<div class="container-fluid">
+			<div class="row col-md-offset-2 col-md-8">
+				<h1>Employees</h1>
+				<table id="employeesTable" class="table table-bordered table-condensed table-striped table-hover">
+				  <thead>
+				    <tr>
+				      <th class="col-md-4">Name</th>
+				      <th class="col-md-4">Hire Date</th>
+				      <th class="col-md-3">Supervisor</th>
+				      <th></th>
+				      <th></th>
+				    </tr>
+				  </thead>
+				  <tbody></tbody>
+				</table>
+				<button class="btn btn-info btn-md pull-right" onclick="createEmployee();"><span class="glyphicon glyphicon-plus"/>Add</button>
+			</div>
+		</div>
+		
+		<div class="container-fluid" style="display: none" id="attributes">
+			<div class="row col-md-offset-4 col-md-4">
+				<h1>Attributes</h1>
+				<table id="attrTable" class="table table-bordered table-condensed table-striped table-hover">
+				  <thead>
+				    <tr>
+				      <th class="col-md-6">Type</th>
+				      <th class="col-md-5">Value</th>
+				      <th></th>
+				      <th></th>
+				    </tr>
+				  </thead>
+				  <tbody></tbody>
+				</table>
+				<button class="btn btn-info btn-md pull-right" onclick="createAttr();"><span class="glyphicon glyphicon-plus"/>Add</button>
+			</div>
+		</div>
+		
+		<div id="dialog-employee">
+		  <p class="validateTips">Form fields with (*) are required.</p>
+		  <form>
+		    <fieldset>
+		      <label for="name">Name*</label>
+		      <input type="text" required name="name" id="name" class="text ui-widget-content ui-corner-all">
+		      <label for="hiredate">Hire date*</label>
+		      <input type="date" required name="hiredate" id="hiredate" class="text ui-widget-content ui-corner-all">
+		      <label for="supervisor">Supervisor</label>
+		      <input type="text" name="supervisor" id="supervisor" class="text ui-widget-content ui-corner-all">
+		    </fieldset>
+		  </form>
+		</div>
+		
+		<div id="dialog-attr">
+		  <p class="validateTips">Form fields with (*) are required.</p>
+		  <form>
+		    <fieldset>
+		      <label for="type">Name*</label>
+		      <input type="text" required name="type" id="type" class="text ui-widget-content ui-corner-all">
+		      <label for="value">Value*</label>
+		      <input type="text" required name="value" id="value" class="text ui-widget-content ui-corner-all">
+		    </fieldset>
+		  </form>
+		</div>
+	</body>
+</html>
